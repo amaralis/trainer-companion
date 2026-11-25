@@ -11,30 +11,30 @@ namespace trainer_companion
     {
         protected override async void OnStartup(StartupEventArgs e)
         {
-            //base.OnStartup(e);
+            base.OnStartup(e);
 
-            //try
-            //{
-            //    await using (var db = new AppDbContext())
-            //    {
-            //        // Apply all pending migrations.
-            //        await db.Database.MigrateAsync();
-            //    }
+            try
+            {
+                await using (var db = new AppDbContext())
+                {
+                    // Apply all pending migrations.
+                    await db.Database.MigrateAsync();
+                }
 
-            //    // Only show the application after the database is ready.
-            //    var mainWindow = new MainWindow();
-            //    mainWindow.Show();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(
-            //        $"Failed to initialize the database:\n\n{ex.Message}",
-            //        "Database Error",
-            //        MessageBoxButton.OK,
-            //        MessageBoxImage.Error);
+                // Only show the application after the database is ready.
+                var mainWindow = new MainWindow();
+                mainWindow.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Failed to initialize the database:\n\n{ex.Message}",
+                    "Database Error",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
 
-            //    Shutdown(-1);
-            //}
+                Shutdown(-1);
+            }
         }
     }
 
