@@ -1,12 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.IO;
+using trainer_companion.Models;
 
 namespace trainer_companion.Database
 {
     internal class AppDbContext : DbContext
     {
-        //public DbSet<Student> Students { get; set; }
-        //public DbSet<Note> Notes { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Note> Notes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -16,12 +17,12 @@ namespace trainer_companion.Database
             optionsBuilder.UseSqlite($"Data Source={appdataDirectory}\\trainer-companion.db");
         }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Note>()
-        //        .Property(n => n.NoteContent)
-        //        .HasMaxLength(1000);
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Note>()
+                .Property(n => n.NoteContent)
+                .HasMaxLength(2000);
+        }
     }
 }
 
