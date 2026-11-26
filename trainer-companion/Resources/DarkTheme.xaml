@@ -10,7 +10,7 @@
         x:Key="PrimaryTextBrush"
         Color="#E0E0E0"/>
 
-    <Style TargetType="Window">
+    <!--<Style TargetType="Window">
 
         <Setter Property="Background"
                 Value="{StaticResource BackgroundBrush}" />
@@ -18,9 +18,9 @@
         <Setter Property="Foreground"
                 Value="{StaticResource PrimaryTextBrush}" />
 
-    </Style>
+    </Style>-->
 
-    <Style TargetType="TextBlock">
+    <!--<Style TargetType="TextBlock">
 
         <Setter Property="Background"
                 Value="{StaticResource BackgroundBrush}" />
@@ -28,5 +28,5 @@
         <Setter Property="Foreground"
                 Value="{StaticResource PrimaryTextBrush}" />
 
-    </Style>
+    </Style>-->
 </ResourceDictionary>
