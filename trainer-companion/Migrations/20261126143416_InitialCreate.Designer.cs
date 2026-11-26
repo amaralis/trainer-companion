@@ -10,8 +10,8 @@ using trainer_companion.Database;
 namespace trainer_companion.Migrations;
 
 [DbContext(typeof(AppDbContext))]
-[Migration("20261125092507_InitialCreate")]
-partial class _20261125092507_InitialCreate
+[Migration("20261126143416_InitialCreate")]
+partial class _20261126143416_InitialCreate
 {
     /// <inheritdoc />
     protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,15 +42,15 @@ partial class _20261125092507_InitialCreate
 
         modelBuilder.Entity("trainer_companion.Models.Student", b =>
             {
-                b.Property<int>("StudentId")
+                b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER");
 
-                b.Property<string>("StudentName")
+                b.Property<string>("Name")
                     .IsRequired()
                     .HasColumnType("TEXT");
 
-                b.HasKey("StudentId");
+                b.HasKey("Id");
 
                 b.ToTable("Students");
             });

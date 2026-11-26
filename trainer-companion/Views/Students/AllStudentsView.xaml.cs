@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Diagnostics;
 
 namespace trainer_companion.Views.Students
 {
@@ -21,6 +13,16 @@ namespace trainer_companion.Views.Students
         public AllStudentsView()
         {
             InitializeComponent();
+            DataContext = new ViewModels.Students.AllStudentsViewModel();
+            Loaded += AllStudentsView_Loaded;
+        }
+
+        private async void AllStudentsView_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is ViewModels.Students.AllStudentsViewModel viewModel)
+            {
+                await viewModel.InitializeAsync();
+            }
         }
     }
 }

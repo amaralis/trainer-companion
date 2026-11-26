@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace trainer_companion.Migrations;
 
 /// <inheritdoc />
-public partial class _20261125092507_InitialCreate : Migration
+public partial class _20261126143416_InitialCreate : Migration
 {
     /// <inheritdoc />
     protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,13 +14,13 @@ public partial class _20261125092507_InitialCreate : Migration
             name: "Students",
             columns: table => new
             {
-                StudentId = table.Column<int>(type: "INTEGER", nullable: false)
+                Id = table.Column<int>(type: "INTEGER", nullable: false)
                     .Annotation("Sqlite:Autoincrement", true),
-                StudentName = table.Column<string>(type: "TEXT", nullable: false)
+                Name = table.Column<string>(type: "TEXT", nullable: false)
             },
             constraints: table =>
             {
-                table.PrimaryKey("PK_Students", x => x.StudentId);
+                table.PrimaryKey("PK_Students", x => x.Id);
             });
 
         migrationBuilder.CreateTable(
@@ -39,7 +39,7 @@ public partial class _20261125092507_InitialCreate : Migration
                     name: "FK_Notes_Students_StudentId",
                     column: x => x.StudentId,
                     principalTable: "Students",
-                    principalColumn: "StudentId",
+                    principalColumn: "Id",
                     onDelete: ReferentialAction.Cascade);
             });
 

@@ -14,7 +14,7 @@ partial class AppDbContextModelSnapshot : ModelSnapshot
     // If you encounter a merge conflict in the line below, it means you need to
     // discard one of the migration branches and recreate its migrations on top of
     // the other branch. See https://aka.ms/efcore-docs-migrations-conflicts for more info.
-    public override string LastMigrationId => "20261125092507_InitialCreate";
+    public override string LastMigrationId => "20261126143416_InitialCreate";
 
     protected override void BuildModel(ModelBuilder modelBuilder)
     {
@@ -44,15 +44,15 @@ partial class AppDbContextModelSnapshot : ModelSnapshot
 
         modelBuilder.Entity("trainer_companion.Models.Student", b =>
             {
-                b.Property<int>("StudentId")
+                b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("INTEGER");
 
-                b.Property<string>("StudentName")
+                b.Property<string>("Name")
                     .IsRequired()
                     .HasColumnType("TEXT");
 
-                b.HasKey("StudentId");
+                b.HasKey("Id");
 
                 b.ToTable("Students");
             });
