@@ -1,12 +1,20 @@
 ﻿<Application x:Class="trainer_companion.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:trainer_companion">
+             xmlns:local="clr-namespace:trainer_companion"
+             xmlns:vstudents="clr-namespace:trainer_companion.Views.Students"
+             xmlns:vmain="clr-namespace:trainer_companion.Views"
+             xmlns:vmmain="clr-namespace:trainer_companion.ViewModels"
+             xmlns:vmstudents="clr-namespace:trainer_companion.ViewModels.Students">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/PresentationFramework.Fluent;component/Themes/Fluent.Dark.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type vmmain:MainScreenViewModel}">
+                <vmain:MainScreen />
+            </DataTemplate>
         </ResourceDictionary>
+
     </Application.Resources>
 </Application>

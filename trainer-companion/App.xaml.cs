@@ -1,6 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Windows;
 using trainer_companion.Database;
+using trainer_companion.Navigation;
+using trainer_companion.ViewModels;
+using trainer_companion.ViewModels.Students;
+using trainer_companion.Views.Students;
 
 namespace trainer_companion
 {
@@ -22,8 +26,12 @@ namespace trainer_companion
                 }
 
                 // Only show the application after the database is ready.
-                var mainWindow = new MainWindow();
-                mainWindow.Show();
+                var navigator = new Navigator();
+                var mvm = new MainViewModel(navigator);
+                var window = new MainWindow { DataContext = mvm };
+
+                navigator.GoTo(new MainScreenViewModel()); // Don't go to MainViewModel, go to MainScreenViewModel instead
+                window.Show();
             }
             catch (Exception ex)
             {
@@ -35,6 +43,8 @@ namespace trainer_companion
 
                 Shutdown(-1);
             }
+
+            
         }
     }
 
